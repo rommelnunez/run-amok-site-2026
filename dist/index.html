@@ -1,2 +1,13 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f0b229"><title>Run Amok</title><style>html,body{margin:0;width:100%;min-height:100%;background:#f0b229}body{min-height:100vh;min-height:100dvh}</style></head><body></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f0b229"><title>Run Amok</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Arial,sans-serif}body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}header{height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#fafafa;border-bottom:1px solid #ededed}nav{display:flex;gap:4px}button{appearance:none;border:0;background:transparent;color:#777;padding:7px 13px;border-radius:5px;font:11px Arial,sans-serif;letter-spacing:.02em;cursor:pointer}button[aria-pressed="true"]{background:#ececec;color:#292929}button:hover{color:#111}button:focus-visible{outline:2px solid #777;outline-offset:2px}main{flex:1;background:#f0b229}
+</style>
+</head>
+<body><header><nav aria-label="Design switcher"><button type="button" aria-pressed="true" data-color="#f0b229">Design 1</button><button type="button" aria-pressed="false" data-color="#ffffff">Design 2</button></nav></header><main aria-label="Design preview"></main>
+<script>
+const buttons=document.querySelectorAll('button');
+buttons.forEach(button=>button.addEventListener('click',()=>{buttons.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));document.querySelector('main').style.backgroundColor=button.dataset.color;document.querySelector('meta[name="theme-color"]').content=button.dataset.color;}));
+</script></body></html>
