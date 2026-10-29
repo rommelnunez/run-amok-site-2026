@@ -109,6 +109,9 @@ button:focus-visible {
 }
 
 .hero {
+  --section-logo-width: min(24vw, 30dvh);
+  --section-logo-top: 24px;
+  --gallery-image-top: calc(var(--section-logo-top) + var(--section-logo-width) * 433 / 1669 + 28px);
   position: relative;
   flex: 1;
   min-height: 100vh;
@@ -454,7 +457,7 @@ body:has(.hero[data-reveal="open"]) .bottom-nav { opacity: 0; pointer-events: no
 .hero[data-view="more"] .logo-stack { display: none; }
 .hero[data-view="more"] .screen-panel { inset: 0; display: block; }
 .extras-section { width: 100%; height: 100%; animation: none; text-align: center; }
-.gallery-stage { position: absolute; inset: 90px 8% 245px; display: grid; place-items: center; min-height: 0; outline-offset: 5px; }
+.gallery-stage { position: absolute; inset: var(--gallery-image-top) 8% 245px; display: grid; place-items: center; min-height: 0; outline-offset: 5px; }
 .gallery-image { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
 .gallery-image[hidden], .gallery-empty[hidden], .gallery-video-status[hidden] { display: none; }
 .gallery-image.is-changing { animation: gallery-photo-in 350ms ease both; }
@@ -498,7 +501,7 @@ body:has(.more-selector[data-open="true"]) .gallery-thumbnails { bottom: 185px; 
  .bottom-nav[data-open="true"] .more-nav-slot { width: 100%; }
 }
 @media (max-width: 700px) {
- .gallery-stage { inset: 135px 8% 250px; }
+ .gallery-stage { inset: max(135px, var(--gallery-image-top)) 8% 250px; }
  .gallery-caption { bottom: 211px; left: 6%; right: 6%; }
  .gallery-caption a { display: block; margin: 5px 0 0; }
  .gallery-thumbnails { left: 2%; right: 2%; gap: 7px; }
@@ -574,7 +577,7 @@ body:has(.more-selector[data-open="true"]) .gallery-thumbnails { bottom: 185px; 
 @media (max-width: 700px) { .impact-organizations { grid-template-columns: 1fr; gap: 14px; } }
 
 /* Persistent brand above the cast wheel and media gallery, across all designs. */
-.hero:is([data-view="cast"], [data-view="more"])[data-design] .logo-single { display: block; position: fixed; top: 24px; left: 50%; width: min(24vw, 30dvh); z-index: 4; pointer-events: none; }
+.hero:is([data-view="cast"], [data-view="more"])[data-design] .logo-single { display: block; position: fixed; top: var(--section-logo-top); left: 50%; width: var(--section-logo-width); z-index: 4; pointer-events: none; }
 @media (max-width: 700px) {
-  .hero:is([data-view="cast"], [data-view="more"])[data-design] .logo-single { top: 28px; width: min(38vw, 24dvh); }
+  .hero { --section-logo-top: 28px; --section-logo-width: min(38vw, 24dvh); }
 }
