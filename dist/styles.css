@@ -110,7 +110,7 @@ button:focus-visible {
 
 .hero {
   --section-logo-width: min(24vw, 30dvh);
-  --section-logo-top: 24px;
+  --section-logo-top: 7dvh;
   --gallery-image-top: calc(var(--section-logo-top) + var(--section-logo-width) * 433 / 1669 + 28px);
   position: relative;
   flex: 1;
@@ -187,7 +187,6 @@ button:focus-visible {
 
 /* In-place screen choreography */
 .logo-single, .logo-stack { transition: top var(--motion), left var(--motion), width var(--motion), height var(--motion), opacity var(--motion), transform var(--motion); }
-.hero:not([data-view="home"]) .logo-single { top: 7%; left: 50%; width: min(24vw, 30dvh); }
 .hero:not([data-view="home"]) .logo-stack { transform: translateX(-50%) scale(.92); opacity: .06; }
 .screen-panel { position: absolute; inset: 18% 6% 130px; display: grid; place-items: center; color: var(--ink); }
 .screen-copy { text-align: center; width: min(100%, 780px); animation: screen-enter var(--motion) both; }
@@ -340,7 +339,6 @@ button:focus-visible {
 .screening-time button { font-size: 12px; padding: 6px 0; color: inherit; opacity: .6; cursor: default; }
 .screening-empty { padding: 32px 0; text-align: center; }
 @media(max-width:600px) {
-  .hero[data-view="screenings"] .logo-single { top: 10%; width: min(40vw,24dvh); }
   .hero[data-view="screenings"] .screen-panel { inset: 20% 5% 100px; }
   .date-strip { gap: 4px; }
   .date-strip button { border-radius: 12px; }
@@ -374,7 +372,6 @@ button:focus-visible {
   .bottom-links { display: none; position: absolute; bottom: calc(100% + 10px); right: 0; max-height: calc(100dvh - 120px); overflow-y: auto; padding: 8px; background: #fffffff2; border: 1px solid #20201920; border-radius: 22px; box-shadow: 0 8px 25px #0001; }
   .bottom-nav[data-open="true"] .bottom-links { display: flex; flex-direction: column; align-items: stretch; }
   .bottom-links button { text-align: left; }
-  .hero:not([data-view="home"]) .logo-single { top: 16%; left: 50%; width: min(50vw, 30dvh); }
   .screen-panel { inset: 26% 6% 110px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -576,8 +573,10 @@ body:has(.more-selector[data-open="true"]) .gallery-thumbnails { bottom: 185px; 
 .impact-section .impact-organization p { font-size: 18px; line-height: 1.4; margin: 0; }
 @media (max-width: 700px) { .impact-organizations { grid-template-columns: 1fr; gap: 14px; } }
 
-/* Persistent brand above the cast wheel and media gallery, across all designs. */
-.hero:is([data-view="cast"], [data-view="more"])[data-design] .logo-single { display: block; position: fixed; top: var(--section-logo-top); left: 50%; width: var(--section-logo-width); z-index: 4; pointer-events: none; }
+/* One shared brand position across every non-home section and design. */
+.hero:not([data-view="home"])[data-design] .logo-single { display: block; position: fixed; top: var(--section-logo-top); left: 50%; width: var(--section-logo-width); z-index: 4; pointer-events: none; }
 @media (max-width: 700px) {
   .hero { --section-logo-top: 28px; --section-logo-width: min(38vw, 24dvh); }
 }
+
+.hero:not([data-view="home"])[data-design] .logo-stack { display: none; }
