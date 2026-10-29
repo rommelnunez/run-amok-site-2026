@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg"  fill="none" id="sprite-logomark" viewBox="0 0 387 368"><title>sprite-logomark</title>
+<g clip-path="url(#clip0)">
+<path d="M0 101.69V191.821V206.49V351.022L121.206 248.552V149.668V135.002V0L0 101.69Z" fill="currentColor"/>
+<path d="M0 118.644V208.778V223.444V367.976L121.206 266.252V166.622V151.956V16.9543L0 118.644Z" fill="currentColor"/>
+<path d="M167.577 266.064H144.438L23.3086 368H46.1483L167.577 266.064Z" fill="currentColor"/>
+<path d="M211.115 266.064H187.979L66.8499 368H89.6895L211.115 266.064Z" fill="currentColor"/>
+<path d="M255.271 266.064H232.135L111.006 368H133.846L255.271 266.064Z" fill="currentColor"/>
+<path d="M298.81 266.064H275.673L154.545 368H177.384L298.81 266.064Z" fill="currentColor"/>
+<path d="M343.461 266.064H320.322L199.193 368H222.033L343.461 266.064Z" fill="currentColor"/>
+<path d="M387 266.064H363.864L242.735 368H265.574L387 266.064Z" fill="currentColor"/>
+<path d="M299.755 55.7371V55.7661L299.705 55.7371L253.994 134.727L208.28 55.7371L208.23 55.7661V55.7371H169.993V209.737H208.23V131.945L240.001 186.843L245.654 196.612H262.332L269.689 183.9L299.755 131.945V209.737H337.993V55.7371H299.755Z" fill="currentColor"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="387" height="368" fill="white"/>
+</clipPath>
+</defs>
+</svg>
