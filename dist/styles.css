@@ -196,7 +196,7 @@ button:focus-visible {
 
 /* Cast: native page scroll drives a sticky portrait wheel. */
 .hero[data-view="cast"] { height: auto; overflow: clip; }
-.hero[data-view="cast"] .logo-single, .hero[data-view="cast"] .logo-stack { display: none; }
+.hero[data-view="cast"] .logo-stack { display: none; }
 .hero[data-view="cast"] .screen-panel { position: relative; inset: auto; display: block; }
 .cast-section { width: 100%; text-align: left; animation: none; }
 .cast-scroll-track { height: 660vh; height: 660svh; }
@@ -451,11 +451,9 @@ body:has(.hero[data-reveal="open"]) .bottom-nav { opacity: 0; pointer-events: no
 }
 
 /* More: a single image stage, thumbnail dock, and expanding collection bubbles. */
-.hero[data-view="more"] .logo-single, .hero[data-view="more"] .logo-stack { display: none; }
+.hero[data-view="more"] .logo-stack { display: none; }
 .hero[data-view="more"] .screen-panel { inset: 0; display: block; }
 .extras-section { width: 100%; height: 100%; animation: none; text-align: center; }
-.gallery-heading { position: absolute; top: 25px; left: 180px; right: 6%; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
-.gallery-heading h1 { font-size: 25px; letter-spacing: 0; margin: 0; }
 .gallery-stage { position: absolute; inset: 90px 8% 245px; display: grid; place-items: center; min-height: 0; outline-offset: 5px; }
 .gallery-image { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
 .gallery-image[hidden], .gallery-empty[hidden], .gallery-video-status[hidden] { display: none; }
@@ -500,8 +498,6 @@ body:has(.more-selector[data-open="true"]) .gallery-thumbnails { bottom: 185px; 
  .bottom-nav[data-open="true"] .more-nav-slot { width: 100%; }
 }
 @media (max-width: 700px) {
- .gallery-heading { top: 28px; left: 125px; right: 6%; }
- .gallery-heading h1 { font-size: 20px; }
  .gallery-stage { inset: 135px 8% 250px; }
  .gallery-caption { bottom: 211px; left: 6%; right: 6%; }
  .gallery-caption a { display: block; margin: 5px 0 0; }
@@ -576,3 +572,9 @@ body:has(.more-selector[data-open="true"]) .gallery-thumbnails { bottom: 185px; 
 .impact-organization h2 { font-size: 27px; font-weight: 400; margin: 0 0 14px; }
 .impact-section .impact-organization p { font-size: 18px; line-height: 1.4; margin: 0; }
 @media (max-width: 700px) { .impact-organizations { grid-template-columns: 1fr; gap: 14px; } }
+
+/* Persistent brand above the cast wheel and media gallery, across all designs. */
+.hero:is([data-view="cast"], [data-view="more"])[data-design] .logo-single { display: block; position: fixed; top: 24px; left: 50%; width: min(24vw, 30dvh); z-index: 4; pointer-events: none; }
+@media (max-width: 700px) {
+  .hero:is([data-view="cast"], [data-view="more"])[data-design] .logo-single { top: 28px; width: min(38vw, 24dvh); }
+}

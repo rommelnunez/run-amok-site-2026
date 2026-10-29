@@ -263,7 +263,6 @@ function setCollectionsOpen(open) {
 function renderGallery() {
   extrasAlbums.poster.items[0].src = ['2', '2.2'].includes(hero.dataset.design) ? 'assets/poster1.png' : 'assets/poster2.png';
   const album=extrasAlbums[collection], item=album.items[galleryIndex];
-  document.querySelector('#gallery-title').textContent=album.title;
   galleryImage.hidden=!item;
   const empty=document.querySelector('.gallery-empty'); empty.hidden=!!item; empty.textContent='Behind-the-scenes photos coming soon.';
   document.querySelector('.gallery-video-status').hidden=collection!=='teaser';
