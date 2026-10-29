@@ -4,6 +4,7 @@ const hero = document.querySelector('.hero');
 const designButtons = document.querySelectorAll('.design-switcher button');
 
 function setMenuOpen(open) {
+  if (open) setCollectionsOpen(false);
   menu.setAttribute('aria-expanded', String(open));
   bar.dataset.open = String(open);
 }
@@ -43,7 +44,12 @@ function showView(view) {
   if (view === 'cast') requestAnimationFrame(updateCastWheel);
 }
 viewButtons.forEach(button => button.addEventListener('click', () => {
-  if (button.dataset.view === 'more' && hero.dataset.view === 'more') { setCollectionsOpen(collectionSelector.dataset.open !== 'true'); return; }
+  if (button.dataset.view === 'more' && hero.dataset.view === 'more') {
+    const open = bar.dataset.open === 'true' || collectionSelector.dataset.open !== 'true';
+    setMenuOpen(false);
+    setCollectionsOpen(open);
+    return;
+  }
   showView(button.dataset.view);
   setCollectionsOpen(button.dataset.view === 'more');
 }));

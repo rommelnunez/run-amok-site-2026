@@ -495,11 +495,15 @@ body:has(.more-selector[data-open="true"]) .gallery-thumbnails { bottom: 185px; 
  .bottom-nav:not([data-open="true"]) .bottom-links:has([data-view="more"][aria-current="page"]) { display: contents; }
  .bottom-nav:not([data-open="true"]) .bottom-links:has([data-view="more"][aria-current="page"]) > button { display: none; }
  .bottom-nav:not([data-open="true"]) .more-nav-slot { grid-column: 3; grid-row: 1; justify-self: end; }
- .more-selector { right: 0; width: min(300px, calc(100vw - 44px)); }
+ .more-selector { right: 0; width: min(300px, calc(100vw - 44px)); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; padding: 6px; }
+ .more-selector button { min-height: 44px; padding: 10px 4px; font-size: 15px; text-align: center; }
  .more-morph { right: 0; width: min(300px, calc(100vw - 44px)); }
  .more-morph path { d: path('M 302 86 H 357 Q 380 86 380 109 V 109 Q 380 109 380 109 H 380 Q 380 109 380 109 V 109 Q 380 132 357 132 H 302 Q 279 132 279 109 V 109 Q 279 86 302 86 H 302 Q 279 86 279 109 Q 279 86 302 86 Z'); }
  .more-nav-slot:has(.more-selector[data-open="true"]) .more-morph path { d: path('M 33 0 H 347 Q 380 0 380 33 V 33 Q 380 66 380 66 H 380 Q 380 66 380 88 V 109 Q 380 132 357 132 H 302 Q 279 132 279 109 V 88 Q 279 66 257 66 H 33 Q 0 66 0 33 Q 0 0 33 0 Z'); }
  .bottom-nav[data-open="true"] .more-nav-slot { width: 100%; }
+ .bottom-nav[data-open="true"] .more-morph { display: none; }
+ .bottom-nav[data-open="true"] .more-nav-slot > button { width: 100%; }
+ .bottom-nav[data-open="true"] .more-nav-slot > button[aria-current="page"] { background: var(--ink); }
 }
 @media (max-width: 700px) {
  .gallery-stage { inset: max(135px, var(--gallery-image-top)) 8% 250px; }
@@ -507,8 +511,6 @@ body:has(.more-selector[data-open="true"]) .gallery-thumbnails { bottom: 185px; 
  .gallery-caption a { display: block; margin: 5px 0 0; }
  .gallery-thumbnails { left: 2%; right: 2%; gap: 7px; }
  .gallery-thumbnails button { flex-basis: 45px; width: 45px; height: 56px; }
- .more-selector { gap: 0; padding: 6px; }
- .more-selector button { padding: 12px 14px; font-size: 15px; }
  .gallery-prev { left: -8%; }
  .gallery-next { right: -8%; }
 }
