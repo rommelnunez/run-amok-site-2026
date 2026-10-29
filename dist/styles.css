@@ -387,6 +387,8 @@ button:focus-visible {
 .reveal-trigger { position: absolute; z-index: 3; left: var(--pointer-x); top: var(--pointer-y); width: 240px; height: 240px; transform: translate(-50%,-50%); border-radius: 50%; padding: 0; opacity: 0; pointer-events: none; color: var(--ink); touch-action: none; user-select: none; -webkit-user-select: none; }
 .reveal-trigger svg { width: 100%; height: 100%; overflow: visible; }
 .reveal-trigger text { fill: currentColor; font: 20px var(--font-site); letter-spacing: 2px; }
+.play-icon { display: block; width: 24px; height: 24px; fill: #fff; }
+.reveal-play .play-icon { width: 28px; height: 28px; }
 .reveal-play { position: absolute; inset: 0; display: grid; place-items: center; color: white; font-size: 24px; }
 .hero[data-view="home"] .reveal-trigger { pointer-events: auto; }
 .hero[data-view="home"][data-reveal="hover"] .reveal-trigger, .reveal-trigger:focus-visible { opacity: 1; }
